@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Filter, MoreVertical, Plus, Search } from "lucide-react";
 import type { Assignment } from "../types";
 
@@ -12,6 +13,7 @@ type AssignmentsContentProps = {
 export default function AssignmentsContent({
   assignments,
 }: AssignmentsContentProps) {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
 
@@ -66,7 +68,8 @@ export default function AssignmentsContent({
               {filteredAssignments.map((assignment) => (
                 <article
                   key={assignment.id}
-                  className="relative rounded-3xl bg-[#F7F7F7] px-5 py-4 shadow-[0_4px_12px_-10px_rgba(0,0,0,0.25)]"
+                  onClick={() => router.push(`/assignment/${assignment.id}`)}
+                  className="relative cursor-pointer rounded-3xl bg-[#F7F7F7] px-5 py-4 shadow-[0_4px_12px_-10px_rgba(0,0,0,0.25)] transition hover:bg-[#F2F2F2]"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-[22px] font-semibold tracking-[-0.01em] text-[#2D2D2D]">
@@ -75,11 +78,12 @@ export default function AssignmentsContent({
 
                     <div className="relative">
                       <button
-                        onClick={() =>
+                        onClick={(event) => {
+                          event.stopPropagation();
                           setOpenMenuId((current) =>
                             current === assignment.id ? null : assignment.id,
-                          )
-                        }
+                          );
+                        }}
                         className="grid h-8 w-8 place-items-center rounded-full text-[#9A9A9A] transition hover:bg-[#ECECEC]"
                         aria-label="Card actions"
                       >
@@ -90,11 +94,15 @@ export default function AssignmentsContent({
                         <div className="absolute right-0 top-9 z-20 w-[126px] rounded-xl border border-[#E5E5E5] bg-white p-1.5 text-[13px] shadow-md">
                           <Link
                             href={`/assignment/${assignment.id}`}
+                            onClick={(event) => event.stopPropagation()}
                             className="block rounded-lg px-2.5 py-1.5 text-[#474747] transition hover:bg-[#F4F4F4]"
                           >
                             View Assignment
                           </Link>
-                          <button className="mt-1 block w-full rounded-lg px-2.5 py-1.5 text-left text-[#E06A6A] transition hover:bg-[#FFF1F1]">
+                          <button
+                            onClick={(event) => event.stopPropagation()}
+                            className="mt-1 block w-full rounded-lg px-2.5 py-1.5 text-left text-[#E06A6A] transition hover:bg-[#FFF1F1]"
+                          >
                             Delete
                           </button>
                         </div>
