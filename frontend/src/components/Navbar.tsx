@@ -1,11 +1,90 @@
+ "use client";
+
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, LayoutGrid, Bell, ChevronDown } from "lucide-react";
+import { ArrowLeft, LayoutGrid, Bell, ChevronDown, Menu } from "lucide-react";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileNavItems = [
+    { name: "Home", href: "/" },
+    { name: "My Groups", href: "/groups" },
+    { name: "Assignments", href: "/assignment" },
+    { name: "AI Teacher's Toolkit", href: "/toolkit" },
+    { name: "My Library", href: "/library" },
+    { name: "Settings", href: "/settings" },
+  ];
+
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between rounded-2xl bg-[#F6F6F6] px-5 py-2.5">
+      <div className="flex items-center justify-between rounded-[26px] bg-[#F6F6F6] px-4 py-3 md:hidden">
+        <Link href="/" className="flex items-center gap-2.5">
+          <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#2f3032] text-[22px] font-bold text-white">
+            v
+          </div>
+          <h1 className="text-[22px] font-semibold tracking-[-0.02em] text-[#2f2f2f]">
+            VedaAI
+          </h1>
+        </Link>
+
+        <div className="flex items-center gap-2.5">
+          <Link
+            href="/notifications"
+            className="relative grid h-12 w-12 place-items-center rounded-full bg-[#EFEFEF] text-[#2f2f2f]"
+            aria-label="Notifications"
+          >
+            <Bell size={28} strokeWidth={2} />
+            <span className="absolute right-3 top-2.5 h-2.5 w-2.5 rounded-full bg-[#f26a32]" />
+          </Link>
+
+          <Link
+            href="/profile"
+            className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#f3c67f] to-[#d68554] text-[11px] font-semibold text-[#2b2b2b]"
+            aria-label="Profile"
+          >
+            JD
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((current) => !current)}
+            className={`grid h-12 w-12 place-items-center rounded-full text-[#222227] transition ${
+              isMobileMenuOpen ? "bg-[#E9E9E9]" : "hover:bg-[#ECECEC]"
+            }`}
+            aria-label="Open menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <Menu size={34} strokeWidth={2.2} />
+          </button>
+        </div>
+      </div>
+
+      {isMobileMenuOpen ? (
+        <div className="mt-2 rounded-2xl bg-[#F6F6F6] p-3 md:hidden">
+          <Link
+            href="/assignment/new"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="mb-2 flex h-10 items-center justify-center rounded-full bg-[#2f3032] text-[13px] font-medium text-white"
+          >
+            Create Assignment
+          </Link>
+          <div className="space-y-1">
+            {mobileNavItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block rounded-xl px-3 py-2 text-[14px] font-medium text-[#2f2f2f] transition hover:bg-[#ECECEC]"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      <div className="hidden items-center justify-between rounded-2xl bg-[#F6F6F6] px-5 py-2.5 md:flex">
         <div className="flex items-center gap-2.5">
           <Link
             href="/"

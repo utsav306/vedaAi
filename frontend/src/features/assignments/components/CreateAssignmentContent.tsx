@@ -50,7 +50,10 @@ export default function CreateAssignmentContent() {
     [rows],
   );
 
-  const updateRow = (id: string, updater: (row: QuestionRow) => QuestionRow) => {
+  const updateRow = (
+    id: string,
+    updater: (row: QuestionRow) => QuestionRow,
+  ) => {
     setRows((currentRows) =>
       currentRows.map((row) => (row.id === id ? updater(row) : row)),
     );
@@ -86,8 +89,8 @@ export default function CreateAssignmentContent() {
 
   return (
     <>
-      <section className="mt-2 min-h-0 flex-1 overflow-y-auto rounded-2xl border border-[#D6D6D6] bg-[#DEDEDE] px-4 pb-4 pt-3">
-        <div className="mb-3 flex items-center gap-2">
+      <section className="mt-6 min-h-0 w-full max-w-4xl flex-1 overflow-y-auto rounded-2xl border border-[#D6D6D6] bg-[#DEDEDE] px-4 pb-4 pt-3 mx-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mb-3 flex items-center justify-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-[#65C588]" />
           <h2 className="text-[24px] font-semibold text-[#2D2D2D]">
             Create Assignment
@@ -271,7 +274,8 @@ export default function CreateAssignmentContent() {
 
           <div className="mt-3 space-y-0.5 text-right text-[13px]">
             <p className="text-[#3D3D3D]">
-              Total Questions : <span className="font-semibold">{totalQuestions}</span>
+              Total Questions :{" "}
+              <span className="font-semibold">{totalQuestions}</span>
             </p>
             <p className="text-[#3D3D3D]">
               Total Marks : <span className="font-semibold">{totalMarks}</span>
@@ -310,7 +314,7 @@ export default function CreateAssignmentContent() {
 
       {isUploadModalOpen ? (
         <div className="fixed inset-0 z-50 grid place-items-center bg-black/30 p-4 backdrop-blur-[1px]">
-          <div className="w-full max-w-md rounded-2xl bg-white p-4 shadow-2xl">
+          <div className="w-full max-w-sm rounded-2xl bg-white p-4 shadow-2xl">
             <div className="mb-3 flex items-center justify-between">
               <h4 className="text-[16px] font-semibold text-[#2F2F2F]">
                 Attach Assignment File
@@ -341,7 +345,9 @@ export default function CreateAssignmentContent() {
                 type="file"
                 accept=".jpg,.jpeg,.png,.pdf"
                 className="hidden"
-                onChange={(event) => onFileSelected(event.target.files?.[0] ?? null)}
+                onChange={(event) =>
+                  onFileSelected(event.target.files?.[0] ?? null)
+                }
               />
             </div>
           </div>
@@ -350,4 +356,3 @@ export default function CreateAssignmentContent() {
     </>
   );
 }
-
