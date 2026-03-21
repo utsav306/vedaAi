@@ -18,29 +18,29 @@ const Navbar = () => {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between rounded-[26px] bg-[#F6F6F6] px-4 py-3 md:hidden">
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#2f3032] text-[22px] font-bold text-white">
+      <div className="flex items-center justify-between rounded-full bg-[#F6F6F6] px-3 py-2 md:hidden">
+        <Link href="/" className="flex items-center gap-2">
+          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#2f3032] text-[18px] font-bold text-white">
             v
           </div>
-          <h1 className="text-[22px] font-semibold tracking-[-0.02em] text-[#2f2f2f]">
+          <h1 className="text-[19px] font-semibold tracking-[-0.02em] text-[#2f2f2f]">
             VedaAI
           </h1>
         </Link>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
           <Link
             href="/notifications"
-            className="relative grid h-12 w-12 place-items-center rounded-full bg-[#EFEFEF] text-[#2f2f2f]"
+            className="relative grid h-10 w-10 place-items-center rounded-full bg-[#EFEFEF] text-[#2f2f2f]"
             aria-label="Notifications"
           >
-            <Bell size={28} strokeWidth={2} />
-            <span className="absolute right-3 top-2.5 h-2.5 w-2.5 rounded-full bg-[#f26a32]" />
+            <Bell size={22} strokeWidth={2} />
+            <span className="absolute right-2.5 top-2 h-2 w-2 rounded-full bg-[#f26a32]" />
           </Link>
 
           <Link
             href="/profile"
-            className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#f3c67f] to-[#d68554] text-[11px] font-semibold text-[#2b2b2b]"
+            className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[#f3c67f] to-[#d68554] text-[10px] font-semibold text-[#2b2b2b]"
             aria-label="Profile"
           >
             JD
@@ -49,13 +49,13 @@ const Navbar = () => {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((current) => !current)}
-            className={`grid h-12 w-12 place-items-center rounded-full text-[#222227] transition ${
+            className={`grid h-10 w-10 place-items-center rounded-full text-[#222227] transition ${
               isMobileMenuOpen ? "bg-[#E9E9E9]" : "hover:bg-[#ECECEC]"
             }`}
             aria-label="Open menu"
             aria-expanded={isMobileMenuOpen}
           >
-            <Menu size={34} strokeWidth={2.2} />
+            <Menu size={28} strokeWidth={2.2} />
           </button>
         </div>
       </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
         </div>
       ) : null}
 
-      <div className="hidden items-center justify-between rounded-2xl bg-[#F6F6F6] px-5 py-2.5 md:flex">
+      <div className="hidden items-center justify-between rounded-full bg-[#F6F6F6] px-5 py-2.5 md:flex">
         <div className="flex items-center gap-2.5">
           <Link
             href="/"

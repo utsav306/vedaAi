@@ -1,5 +1,3 @@
-import type { Assignment } from "../types";
-
 type DetailSeed = {
   subject: string;
   className: string;
@@ -349,7 +347,7 @@ const assignmentSeeds: Array<{
   },
 ];
 
-export const mockAssignments: Assignment[] = [
+export const mockAssignments = [
   ...assignmentSeeds.map((item) => ({
     id: item.id,
     title: item.title,

@@ -1,10 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import CreateAssignmentContent from "@/features/assignments/components/CreateAssignmentContent";
 
 export default function CreateAssignmentPage() {
   return (
-    <main className="h-screen overflow-hidden bg-transparent p-2">
+    <main className="h-screen overflow-hidden bg-transparent p-2 pb-24 md:pb-2">
       <section className="mx-auto flex h-full max-w-[1700px] gap-2.5 rounded-xl bg-transparent p-2">
         <Sidebar />
 
@@ -15,6 +16,7 @@ export default function CreateAssignmentPage() {
           <CreateAssignmentContent />
         </div>
       </section>
+      <MobileBottomNav />
     </main>
   );
 }

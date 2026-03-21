@@ -72,11 +72,10 @@ const EmptyState = () => {
 
       <Link
         href="/assignment/new"
-        className="group relative inline-flex h-10 items-center gap-2 rounded-full bg-[#18191B] px-6 text-white shadow-[0_10px_25px_-15px_rgba(0,0,0,0.8)] transition hover:brightness-110"
+        className="inline-flex h-10 items-center gap-2 rounded-full bg-[#18191B] px-6 text-white shadow-[0_10px_25px_-15px_rgba(0,0,0,0.8)] transition hover:brightness-110"
       >
-        <span className="absolute inset-0 rounded-full border-2 border-[#D65F36] opacity-80" />
-        <Plus size={16} className="relative" />
-        <span className="relative text-[14px] font-semibold leading-none">
+        <Plus size={16} />
+        <span className="text-[14px] font-semibold leading-none">
           Create Your First Assignment
         </span>
       </Link>

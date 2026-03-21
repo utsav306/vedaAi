@@ -41,7 +41,7 @@ const Sidebar = () => {
 
         <Link
           href="/assignment/new"
-          className="mb-8 flex h-11 items-center justify-center gap-2 rounded-full border-2 border-[#B05935] bg-[#2f3032] text-[14px] font-medium text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] transition hover:brightness-110"
+          className="mb-8 flex h-11 items-center justify-center gap-2 rounded-full bg-[#2f3032] text-[14px] font-medium text-white transition hover:brightness-110"
         >
           <Sparkles size={14} />
           <span>Create Assignment</span>

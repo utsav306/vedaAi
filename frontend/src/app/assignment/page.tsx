@@ -1,11 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-import AssignmentsContent from "@/features/assignments/components/AssignmentsContent";
-import { mockAssignments } from "@/features/assignments/data/mockAssignments";
+import MobileBottomNav from "@/components/MobileBottomNav";
+import AssignmentsPageClient from "@/features/assignments/components/AssignmentsPageClient";
 
 export default function AssignmentPage() {
   return (
-    <main className="h-screen overflow-hidden bg-transparent p-2">
+    <main className="h-screen overflow-hidden bg-transparent p-2 pb-24 md:pb-2">
       <section className="mx-auto flex h-full max-w-[1700px] gap-2.5 rounded-xl bg-transparent p-2">
         <Sidebar />
 
@@ -13,9 +13,10 @@ export default function AssignmentPage() {
           <div className="shrink-0">
             <Navbar />
           </div>
-          <AssignmentsContent assignments={mockAssignments} />
+          <AssignmentsPageClient />
         </div>
       </section>
+      <MobileBottomNav />
     </main>
   );
 }
