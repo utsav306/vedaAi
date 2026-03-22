@@ -12,9 +12,7 @@ async function bootstrap() {
   const app = createApp();
   const httpServer = createServer(app);
 
-  const io = new SocketIOServer(httpServer, {
-    cors: { origin: env.FRONTEND_ORIGIN, credentials: true },
-  });
+  const io = new SocketIOServer(httpServer);
 
   io.use((socket, next) => {
     const token = socket.handshake.auth.token as string | undefined;

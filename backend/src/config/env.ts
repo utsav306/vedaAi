@@ -10,7 +10,6 @@ const envSchema = z.object({
   JWT_SECRET: z.string().min(16).default("vedaai-local-dev-secret-change-me"),
   JWT_EXPIRES_IN: z.string().default("7d"),
   REDIS_URL: z.string().url().default("redis://127.0.0.1:6379"),
-  FRONTEND_ORIGIN: z.string().url().default("http://localhost:3000"),
   GEMINI_API_KEY: z.string().optional().default(""),
   GEMINI_MODEL: z.string().default("gemini-2.0-flash"),
   PDF_OUTPUT_DIR: z.string().default("uploads/pdfs"),
