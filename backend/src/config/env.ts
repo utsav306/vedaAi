@@ -6,6 +6,7 @@ dotenv.config();
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   PORT: z.coerce.number().int().positive().default(4000),
+  FRONTEND_ORIGIN: z.string().min(1).default("http://localhost:3000"),
   MONGO_URI: z.string().min(1).default("mongodb://127.0.0.1:27017/vedaai"),
   JWT_SECRET: z.string().min(16).default("vedaai-local-dev-secret-change-me"),
   JWT_EXPIRES_IN: z.string().default("7d"),
