@@ -17,9 +17,12 @@ export function createApp() {
   app.use(morgan("dev"));
   app.use(express.json({ limit: "1mb" }));
 
-  app.get("/health", (_req, res) => {
+  const healthHandler = (_req: express.Request, res: express.Response) => {
     res.json({ ok: true, service: "backend" });
-  });
+  };
+
+  app.get("/health", healthHandler);
+  app.get("/api/v1/health", healthHandler);
 
   app.use("/api/v1/auth", authRouter);
   app.use("/api/v1/assignments", assignmentsRouter);

@@ -82,7 +82,7 @@ npm run dev
 4. Open app:
 
 - Frontend: `http://localhost:3000`
-- Backend health: `http://localhost:4000/health`
+- Backend health: `http://localhost:4000/health` or `http://localhost:4000/api/v1/health`
 
 ## Useful Scripts
 
@@ -105,6 +105,7 @@ npm run dev
 ## API Overview
 
 - `GET /health`
+- `GET /api/v1/health`
 - `POST /api/v1/auth/register`
 - `POST /api/v1/auth/login`
 - `POST /api/v1/assignments/generate` (auth)
